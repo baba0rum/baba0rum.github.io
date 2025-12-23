@@ -1,1 +1,105 @@
-Hello
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>baba0rum</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    h1 {
+      margin-bottom: 40px;
+    }
+
+    .container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+    label {
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    select {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    select option {
+      background-color: white;
+      color: black;
+    }
+
+    #result {
+      margin-top: 40px;
+      font-size: 18px;
+    }
+
+    a {
+      color: blue;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>baba0rum</h1>
+
+  <div class="container">
+    <label for="lfs">Select your lfs version</label>
+
+    <select id="lfs">
+      <option value="">-- Choose --</option>
+      <option value="v1">lfs v1.0</option>
+      <option value="v2">lfs v2.0</option>
+      <option value="v3">lfs v3.0</option>
+    </select>
+  </div>
+
+  <div id="result"></div>
+
+  <script>
+    const links = {
+      v1: "https://example.com/download/lfs_v1.zip",
+      v2: "https://example.com/download/lfs_v2.zip",
+      v3: "https://example.com/download/lfs_v3.zip"
+    };
+
+    const select = document.getElementById("lfs");
+    const result = document.getElementById("result");
+
+    select.addEventListener("change", () => {
+      const value = select.value;
+
+      if (value && links[value]) {
+        result.innerHTML = `
+          Télécharger la version sélectionnée :
+          <br>
+          <a href="${links[value]}" target="_blank">
+            ${links[value]}
+          </a>
+        `;
+      } else {
+        result.innerHTML = "";
+      }
+    });
+  </script>
+
+</body>
+</html>
